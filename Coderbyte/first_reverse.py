@@ -20,11 +20,24 @@ def FirstReverse(strParam):
  return result_list  
  
  
- 
-   
-   
- 
-    
-
 # keep this function call here 
 print(FirstReverse("I Love Code"))
+
+def reverse(str):
+  return str[::-1]
+
+print(reverse('go to school!'))
+
+# A slice bracket has three 'slots': Start, end, and step.
+
+# [2:17:3] means: Start at 2, end before 17, go in steps of 3.
+
+# [17:2:-3] means: Start at 17, end before 2, go *backward* steps of 3.
+
+# If you leave slots empty, there's a default.
+
+# [:] means: The whole thing. 
+
+# [::1] means: Start at the beginning, end when it ends, walk in steps of 1 (which is the default, so you don't even need to write it).
+
+# [::-1] means: Start at the end (the minus does that for you), end when nothing's left and walk backwards by 1.

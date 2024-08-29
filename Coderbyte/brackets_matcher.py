@@ -11,9 +11,11 @@ def BracketMatcher(strParam):
 # if no brakets return 1
  if brakets1 == brakets2:
    return 1
- else:
+ else :
    return 0
+ 
+  
 
 
 # keep this function call here 
-print(BracketMatcher("(coder)(byte))"))
+print(BracketMatcher("(coder (byte))"))

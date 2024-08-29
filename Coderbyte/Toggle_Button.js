@@ -6,11 +6,12 @@ import React, { useState } from "react";
 import { createRoot } from "react-dom/client";
 
 function Toggle() {
+  const[On,SetOn] = useState(true)
   function handleClick() {
-    // todo
+    SetOn(!On)
   }
 
-  return <button>ON</button>;
+  return <button onClick={handleClick}>{isOn? 'ON' : 'OFF' }</button>;
 }
 
 const container = document.getElementById("root");
