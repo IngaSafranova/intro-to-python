@@ -41,7 +41,11 @@ def play_game():
     # We then need to convert it to a number using `int`
     row = int(input("Enter a row: "))
     column = int(input("Enter a column: "))
+    if not valid_move(board, row, column):
+      print('Invalid move!')
+      continue
     board = make_move(board, row, column, player)
+    
     if player == "X":
       player = "O"
     else:
@@ -49,6 +53,9 @@ def play_game():
   print(print_board(board))
   print("Game over!")
 
+def valid_move(board, row, column):
+  return board[row][column] == '.'
+    
 def print_board(board):
   formatted_rows = []
   for row in board:
@@ -98,6 +105,8 @@ groups_to_check = [
 ]
 
 def is_game_over(board):
+  if draw(board):
+    return True
   # We go through our groups
   for group in groups_to_check:
     # If any of them are empty, they're clearly not a
@@ -108,7 +117,14 @@ def is_game_over(board):
         # Note that return also stops the function
   return False # If we get here, we didn't find a winning row
 
-# And test it out:
 
+def draw(board):
+  for row in board:
+    if '.' in row:
+      return False
+    else:
+      return True
+ 
+ 
 print("Game time!")
 play_game()
