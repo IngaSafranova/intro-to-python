@@ -17,10 +17,10 @@ def longestCommonPrefix( strs):
       if string[i] != strs[0][i]:
         return string[:i]
     i += 1
-    
-  return string[:1]    
+   # for all the rest cases return first char of first string 
+  return strs[0][:i]    
    
    
 
 
-print(longestCommonPrefix( ["flower","flow","flight"]))
+print(longestCommonPrefix( ["flower","flower","flower"]))
