@@ -9,15 +9,16 @@ def dailyTemp(temp):
     temp_stack =[] 
   # have temp and index
     for i,t in enumerate(temp):
+     
    # check if temp in stack is less than one in temp list
-        while temp_stack and temp_stack[-1][0] < t:
+       while temp_stack and temp_stack[-1][0] < t:
     # if yes pop it from the stack with the index
            temp_stack_t,temp_stack_i = temp_stack.pop()
       # substrack hihger temp index from index in stack and append answer list with the result.
            answer[temp_stack_i] = i - temp_stack_i
           
-         # put temp into stack  
-        temp_stack.append((t,i))
+         # put temp into stack at the end, not at first so we have first loop go empty, put first temp into stack and on second iteration we have to compare first temp in the stack with second temp in a list 
+       temp_stack.append((t,i)) 
         
     return answer
         
