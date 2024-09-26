@@ -21,23 +21,37 @@ def search(nums,target):
    else:
      right = middle
      
- index = left 
- print(index)   
-# divide array into 2 arrays - biger_nums and smaller_nums
- big = nums[0:4]
- small = nums[4:]
- print(small)
-# check if target in one of them
- for num in big:
-   if num == target:
-     return nums[num]
- for num in small:
-   if num == target:
-     return nums[num]
- return -1
+ min_index = left 
+   
+
+# check if target in bigger or smaller sides
+# if we have normal sorted array
+ if min_index == 0:
+   left = 0
+   right = len(nums)-1
+ elif target >= nums[0] and target <= nums[min_index -1]:
+   left = 0
+   right = min_index -1 
+ else:
+   left = min_index
+   right = len(nums)-1
+   
+ while left <= right:
+   middle = (left + right)//2
+   if nums[middle] == target:
+     return middle
+   elif nums[middle] > target:
+     right = middle -1
+   else:
+     left = middle +1
+     
+ return -1        
+   
+   
+ 
     
   
-print(search([4,5,6,7,0,1,2,3],8))
+print(search([4,5,6,7,0,1,2,3],9))
 
 
 
