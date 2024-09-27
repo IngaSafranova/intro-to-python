@@ -14,6 +14,7 @@ def search(nums,target):
   while left <= right:
     # find middle index of array
     middle = left + ((right- left)//2)
+    print(middle)
     # if middle index value is target
     if nums[middle] == target:
       #return index
@@ -27,4 +28,4 @@ def search(nums,target):
   # if escaped the loop - False no target number    
   return -1      
 
-print(search([-1,0,3,5,9,12], 9))
+print(search([1,2,3,4,5,6,7,8,9,10,11,12,13,13,14,16,17,18,19,20], 21))
