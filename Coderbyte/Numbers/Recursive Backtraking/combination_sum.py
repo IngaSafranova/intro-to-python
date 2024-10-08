@@ -15,6 +15,29 @@
 
 def combinationSum(candidates, target):
   
-  pass
+  nums = candidates
+  result = []
+  solution = []
+  
+  def backtrack(i, curr_sum):
+    # if we found target sum
+    if curr_sum == target:
+      result.append(solution[:])
+      return 
+    
+    # if curr_sum too big or we went to the end of nums
+    if curr_sum > target or i == len(nums):
+      return
+    
+    # deside not to pick a number
+    backtrack(i+1, curr_sum)
+    
+    # we pick a number
+    solution.append(nums[i])
+    backtrack(i, curr_sum + nums[i])
+    solution.pop()
+  
+  backtrack(0,0)
+  return result
 
 print(combinationSum([2,3,6,7],7))
