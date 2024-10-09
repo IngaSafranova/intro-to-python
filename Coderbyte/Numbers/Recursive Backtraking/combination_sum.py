@@ -29,7 +29,7 @@ def combinationSum(candidates, target):
     if curr_sum > target or i == len(nums):
       return
     
-    # deside not to pick a number
+    # decide not to pick a number
     backtrack(i+1, curr_sum)
     
     # we pick a number
