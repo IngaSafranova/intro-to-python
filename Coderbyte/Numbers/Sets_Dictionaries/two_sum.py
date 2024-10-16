@@ -8,6 +8,7 @@
 # Output: [0,1]
 # Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
 
+                        # 2 solutions #
 
 def twoSum( nums,target):
         nums_dict = {}
@@ -23,6 +24,28 @@ def twoSum( nums,target):
             # check that second index is not the same as i.
             if y in nums_dict and nums_dict[y] != i:
                 return [i, nums_dict[y]]
+            
+            
+         ##### SECOND SOLUTION ####
+         
+            
+         # have dict where we keep num as key and index as val
+        nums_dict = {}  # num:index
+
+        for index, num in enumerate(nums):
+            #print(index,num)
+            j = target - num
+        # at first our map is empty and we check is number in the map    
+            if j in nums_dict:
+                return [nums_dict[j],index]
+        # if number not good for the target we append to map, so when second number come up it will find first number in map. Map will not have every number from array if target numbers will be at the begining of array    
+            nums_dict[num] = index 
+        print(nums_dict)       
+
+
+   
+            
+            
 
 # Time Complexity: O(n)
 # Space Complexity: O(n)
