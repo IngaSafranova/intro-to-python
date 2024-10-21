@@ -7,7 +7,8 @@
 # Input: nums = [1,2,3,4]
 # Output: [24,12,8,6]
 
-
+      ##### 2 solutions #####
+      
 def productExceptSelf(nums):
   # go through array and multiply from left to right
   # the same from right to left
@@ -36,7 +37,27 @@ def productExceptSelf(nums):
     # print(answer)
   return answer
   
-  
-  
-
 print(productExceptSelf([1,2,3,4]))
+
+def productExceptSelf(nums):
+  # same as above, multiply from left to right 
+  # and right to left but keep answers in 1 answer array
+  n = len(nums)
+  answer = [0]*n
+  left_product = 1
+  right_product = 1
+  
+  # multiply from left
+  for i in range(n):
+    answer[i] = left_product
+    left_product *= nums[i]
+    
+  # multiply from right
+  for j in range(n-1,-1,-1):
+    # we cannot reasign, we multiply left product with right product
+    answer[j] *= right_product
+    # find right product for each number
+    right_product *= nums[j]
+  return answer  
+    
+    
