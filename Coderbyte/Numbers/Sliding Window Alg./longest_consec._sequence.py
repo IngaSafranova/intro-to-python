@@ -23,6 +23,7 @@ def longestConsecutive(nums):
       # count how many numbers a in a sequence
       while num + count in nums_set:
         count += 1 
+        print(f'n - {num}+{count}')
     longest = max(longest, count)  
   return longest   
 
