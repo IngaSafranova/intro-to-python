@@ -8,7 +8,7 @@
 
 from collections import defaultdict
 
-
+     ##### TWO SOLUTIONS #####
 def groupAnagrams(strs):
   # have dict where we keep letter count as key and actual string as value
   # use defaultdict and list as default value
@@ -30,4 +30,25 @@ def groupAnagrams(strs):
  
 print(groupAnagrams(["act","pots","tops","cat","stop","hat"])) 
  
- 
+def group_anagrams(s):
+  # import deffault dict so we can append words as value
+  # with normal map = {} we cannot do that
+  map = defaultdict(list) # letters:[word]
+  answer = []
+  
+  # iterate the string and sort each word. It will be our key for the map.
+  for word in s:
+    # if we just use sort() - letters will be sorted as individual in a list
+    # now we make them into sorted string
+    letters =('').join(sorted(word))
+    print(letters)
+  # anagram is rearanged letters so words with the same letters when sorted will be the same
+    map[letters].append(word)
+    print(map)
+  # iterate the map and put values into answer list
+  for value in map.values():
+    answer.append(value)
+  return answer  
+  
+
+print(group_anagrams(["eat","tea","tan","ate","nat","bat"]))
