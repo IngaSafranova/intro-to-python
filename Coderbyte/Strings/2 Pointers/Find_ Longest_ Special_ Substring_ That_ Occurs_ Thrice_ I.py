@@ -31,8 +31,7 @@ def maximumLength( s):
           string_map[substring] = 1
       else:
         break
-  print(string_map)
-  
+  print(string_map)    
   answer = 0
   # iterate the map
   for string, freq in string_map.items():
